@@ -22,7 +22,7 @@ public class LoginController {
 	@GetMapping({ "/", "" })
 	public String index(Model model) {
 		model.addAttribute(new User());
-		return "formulario";
+		return "login/index";
 	}
 
 	@PostMapping({ "/", "" })
@@ -33,10 +33,10 @@ public class LoginController {
 //					.collect(Collectors.toMap(e -> e.getField(), e -> e.getDefaultMessage()));
 //			model.addAttribute("errors", errors);
 			
-			return "formulario";
+			return "login/index";
 		}
 		model.addAttribute(user);
-		return "home";
+		return "users/show";
 	}
 
 }

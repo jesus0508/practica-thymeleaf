@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>[[${title}]]</title>
 </head>
 <body>
 	<!-- 	<h1 th:text="'Este es un mensaje crrano '+${mensaje}"></h1>
 	<span>Hoy es [[${fecha}]]</span> -->
-	<h2 th:text="${user.username}">[[]]</h2>
+	<h2 th:text="${user.email}">[[]]</h2>
 	<span>[[${user.dni}]]</span>
 	<p th:text="${user.password}">[[${user.password}]]</p>
 </body>

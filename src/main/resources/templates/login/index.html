@@ -8,42 +8,48 @@
 </head>
 
 <body>
-	<div class="w-full max-w-xs">
-		<form th:action="@{/login}" th:object="${user}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-			method="post">
+	<div class="w-full max-w-lg">
+		<form th:action="@{/login}" th:object="${user}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post">
+    
 			<div class="mb-4">
 				<label class="block text-gray-700 text-sm font-bold mb-2" for="dni"> Documento de identidad: </label>
 				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					id="dni" type="text" placeholder="87654321" th:field="*{dni}">
 				<p th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}" class="text-red-500 text-xs italic"></p>
 			</div>
-			<div class="mb-4">
-				<label class="block text-gray-700 text-sm font-bold mb-2" for="firstname"> Nombres: </label>
-				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-				  id="firstname" type="text" placeholder="" th:field="*{firstname}">
-				<p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" class="text-red-500 text-xs italic"></p>
-			</div>
-			<div class="mb-4">
-				<label class="block text-gray-700 text-sm font-bold mb-2" for="lastname"> Apellidos: </label>
-				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-				  id="lastname" type="text" placeholder="" th:field="*{lastname}">
-				<p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" class="text-red-500 text-xs italic"></p>
-			</div>
-      <div class="mb-4">
-				<label class="block text-gray-700 text-sm font-bold mb-2" for="birthdate"> Fecha de nacimiento: </label>
-				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-				  id="birthdate" type="date" placeholder="2020/04/23" th:field="*{birthdate}">
-				<p th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}" class="text-red-500 text-xs italic"></p>
-			</div>
-      <div class="mb-4">
-				<label class="block text-gray-700 text-sm font-bold mb-2" for="country"> Pais: </label>
-        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="country">
-          <option value="Mexico">Mexico</option>
-          <option value="Peru">Peru</option>
-          <option value="Venezuela">Venezuela</option>
-        </select>
-				<p th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="text-red-500 text-xs italic"></p>
-			</div>
+
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname"> Nombres: </label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="firstname" type="text" placeholder="" th:field="*{firstname}">
+          <p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" class="text-red-500 text-xs italic"></p>
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="surname"> Apellidos: </label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="surname" type="text" placeholder="" th:field="*{surname}">
+          <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-red-500 text-xs italic"></p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="birthdate"> Fecha de nacimiento: </label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="birthdate" type="date" placeholder="23/04/2020" th:field="*{birthdate}">
+          <p th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}" class="text-red-500 text-xs italic"></p>
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="country"> Pais: </label>
+          <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="country">
+            <option value="Mexico">Mexico</option>
+            <option value="Peru">Peru</option>
+            <option value="Venezuela">Venezuela</option>
+          </select>
+          <p th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="text-red-500 text-xs italic"></p>
+        </div>
+      </div>
 			<div class="mb-4">
 				<label class="block text-gray-700 text-sm font-bold mb-2" for="username"> Correo: </label>
 				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -52,7 +58,7 @@
 			</div>
 			<div class="mb-6">
 				<label class="block text-gray-700 text-sm font-bold mb-2" for="password"> Contraseña: </label> 
-        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					id="password" type="password" placeholder="******************" th:field="*{password}">
 				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-red-500 text-xs italic"></p>
 			</div>

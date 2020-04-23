@@ -4,22 +4,24 @@ import java.util.Date;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class User {
 
-    @NotEmpty
+    @NotBlank
     @Pattern(regexp = "[0-9]{8}")
     private String dni;
 
-    @NotEmpty
+    @NotBlank
     private String firstname;
 
-    @NotEmpty
-    private String lastname;
+    @NotBlank
+    private String surname;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
 
     private Country country;
@@ -35,11 +37,11 @@ public class User {
     public User() {
     }
 
-    public User(String dni, String firstname, String lastname, Date birthdate, Country country, String email,
+    public User(String dni, String firstname, String surname, Date birthdate, Country country, String email,
             String password) {
         this.dni = dni;
         this.firstname = firstname;
-        this.lastname = lastname;
+        this.surname = surname;
         this.birthdate = birthdate;
         this.country = country;
         this.email = email;
@@ -62,12 +64,12 @@ public class User {
         this.firstname = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public Date getBirthdate() {

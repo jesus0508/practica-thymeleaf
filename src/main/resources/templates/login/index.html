@@ -43,9 +43,8 @@
         <div class="w-full md:w-1/2 px-3">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="country"> Pais: </label>
           <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="country">
-            <option value="Mexico">Mexico</option>
-            <option value="Peru">Peru</option>
-            <option value="Venezuela">Venezuela</option>
+            <option th:each="country : ${countries}" value="${country.id}">[[${country.name}]]</option>
+
           </select>
           <p th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="text-red-500 text-xs italic"></p>
         </div>

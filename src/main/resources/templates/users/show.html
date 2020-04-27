@@ -4,14 +4,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>[[${title}]]</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
 	<!-- 	<h1 th:text="'Este es un mensaje crrano '+${mensaje}"></h1>
 	<span>Hoy es [[${fecha}]]</span> -->
-	<h2 th:text="${user.email}">[[]]</h2>
-	<span>[[${user.dni}]]</span>
-	<p th:text="${user.password}">[[${user.password}]]</p>
+	<h2 class="font-bold text-xl mb-2" th:text="${user.firstname}+' '+${user.surname}"></h2>
+    <p class="text-gray-700 text-base">[[${user.email}]]</p>
+	<p class="text-gray-700 text-base">[[${user.dni}]] - [[${user.birthdate}]]</p>
+	<p class="text-gray-700 text-base">[[${user.country.name}]]</p>
 </body>
 
 </html>
